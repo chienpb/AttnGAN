@@ -29,7 +29,7 @@ def sent_loss(cnn_code, rnn_code, labels, class_ids,
             masks.append(mask.reshape((1, -1)))
         masks = np.concatenate(masks, 0)
         # masks: batch_size x batch_size
-        masks = torch.ByteTensor(masks)
+        masks = torch.tensor(masks ,  dtype=torch.bool)
         if cfg.CUDA:
             masks = masks.cuda()
 
@@ -116,7 +116,7 @@ def words_loss(img_features, words_emb, labels,
     if class_ids is not None:
         masks = np.concatenate(masks, 0)
         # masks: batch_size x batch_size
-        masks = torch.ByteTensor(masks)
+        masks = torch.tensor(masks ,dtype=torch.bool)
         if cfg.CUDA:
             masks = masks.cuda()
 
