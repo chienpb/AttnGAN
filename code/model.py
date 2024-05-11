@@ -576,6 +576,7 @@ class D_NET64(nn.Module):
         self.COND_DNET = D_GET_LOGITS(ndf, nef, bcondition=True)
 
     def forward(self, x_var):
+        
         x_code4 = self.img_code_s16(x_var)  # 4 x 4 x 8df
         return x_code4
 
