@@ -167,6 +167,7 @@ class condGANTrainer(object):
             netD = netsD[i]
             torch.save(netD.state_dict(),
                 '%s/netD%d.pth' % (self.model_dir, i))
+        print ("{}/netD{}.pth".format(self.model_dir, i) )
         print('Save G/Ds models.')
 
     def set_requires_grad_value(self, models_list, brequires):
